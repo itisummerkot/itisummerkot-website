@@ -11,6 +11,8 @@ export const site = {
   established: "03/01/2017",
   dgetCode: "GR02000299",
   mapQuery: "Govt ITI Summerkot, Shimla, Himachal Pradesh 171124",
+  prospectusUrl:
+    "https://www.hptechboard.com/storage/files/1/1st%20folder%20for%20PAT%20LEET_2026/ITI_Prospectus_2026.pdf",
   social: {
     facebook: "#",
     twitter: "#",

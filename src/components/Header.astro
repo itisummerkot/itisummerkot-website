@@ -57,7 +57,7 @@ const groupActive = (children?: { href: string }[]) =>
     </a>
 
     <div class="hidden xl:flex items-center gap-2">
-      <a href="/downloads/" class="btn btn-outline">
+      <a href={site.prospectusUrl} target="_blank" rel="noopener" class="btn btn-outline">
         <Icon name="download" size={17} /> Prospectus
       </a>
       <a href="https://linktr.ee/nimichennai" target="_blank" rel="noopener" class="btn btn-outline">
@@ -178,7 +178,7 @@ const groupActive = (children?: { href: string }[]) =>
         ))
       }
       <li class="flex gap-2 pt-3">
-        <a href="/downloads/" class="btn btn-ghost-light flex-1 text-xs">Prospectus</a>
+        <a href={site.prospectusUrl} target="_blank" rel="noopener" class="btn btn-ghost-light flex-1 text-xs">Prospectus</a>
         <a href="/contact-us/" class="btn btn-accent flex-1 text-xs">Contact Us</a>
       </li>
     </ul>

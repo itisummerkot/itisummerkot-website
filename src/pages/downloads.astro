@@ -2,12 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import Icon from "../components/Icon.astro";
+import { site } from "../data/site";
 
 const files = [
   {
-    title: "ITI Prospectus (latest)",
-    href: "https://www.hptechboard.com/",
-    meta: "Download from the official admission portal",
+    title: "ITI Prospectus 2026",
+    href: site.prospectusUrl,
+    meta: "PDF · official prospectus (HPTechBoard)",
     external: true,
   },
   {
