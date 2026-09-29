@@ -2,46 +2,32 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PageHeader from "../components/PageHeader.astro";
 import DataTable from "../components/DataTable.astro";
+import Icon from "../components/Icon.astro";
 
 const rows = [
-  ["1", "Electrician", "Subsidized", "—", "—", "—", "—", "—", "20", "19", "2 Years"],
-  ["2", "Electrician", "Non-Subsidized", "DGT/1001", "98", "98.67", "5.2", "20", "18", "—", "—"],
-  ["3", "ICTSM*", "Subsidized", "—", "—", "—", "—", "—", "24", "24", "2 Years"],
-  ["4", "ICTSM*", "Non-Subsidized", "DGT/1019", "70", "87.72", "3.45", "—", "—", "—", "—"],
-  ["5", "MMV", "Subsidized", "DGT/1008", "210", "127+88=215", "4.8", "—", "24", "22", "2 Years"],
-  ["6", "Plumber", "Subsidized", "DGT/1014", "80", "87.72", "3", "90 KW", "24", "22", "1 Year"],
-  ["7", "POCM**", "Non-Subsidized", "DGT/1044", "84", "98", "11", "—", "20", "19", "1 Year"],
-  ["8", "Sewing Technology", "Subsidized", "DGT/1011", "64", "66.1", "5", "—", "20", "12", "1 Year"],
-  ["9", "Theory Rooms", "—", "—", "25", "4 × 30 = 120", "—", "—", "—", "—", "—"],
-];
-
-const headers = [
-  "Sr. No.",
-  "Name of the Trade",
-  "Sub. / Non-Sub.",
-  "Trade Code",
-  "Space Req. (Sq.M.)",
-  "Space Available (Sq.M.)",
-  "Load Req. (KW)",
-  "Load Available (KW)",
-  "Sanctioned Strength",
-  "Trainees on Roll",
-  "Training Duration",
+  ["1", "Electrician", "DGT/1001", "2 Years", "20", "10th Pass"],
+  ["2", "COPA", "DGT/1003", "1 Year", "24", "10th Pass"],
 ];
 ---
 
-<BaseLayout title="Training Details" description="Trade-wise space, load, sanctioned strength and enrolment details of Govt. ITI Summerkot.">
-  <PageHeader title="Training Details" subtitle="Space, electrical load, sanctioned strength and enrolment across trades." />
+<BaseLayout title="Training Details" description="Trade-wise training details of Govt. ITI Summerkot — Electrician and COPA.">
+  <PageHeader title="Training Details" subtitle="Trades offered, duration, sanctioned intake and eligibility." />
   <section class="container-page py-12 lg:py-16">
-    <div class="mx-auto max-w-6xl">
-      <DataTable headers={headers} rows={rows} minWidth="62rem" />
-      <div class="mt-6 space-y-2 text-sm text-ink-600">
-        <p><strong>* ICTSM</strong> — Information Communication Technology System Maintenance.</p>
-        <p><strong>** POCM</strong> — Pump Operator Cum Mechanic.</p>
-        <p class="rounded-xl border border-saffron-200 bg-saffron-50 p-4">
-          <strong>Note:</strong> The table lists subsidized and non-subsidized units separately, as
-          published by the institute. Construction of Block-B of the institution building has been
-          completed and is likely to be handed over to the institution by the construction agency soon.
+    <div class="mx-auto max-w-5xl">
+      <DataTable
+        headers={["Sr. No.", "Name of the Trade", "Trade Code", "Training Duration", "Sanctioned Strength", "Eligibility"]}
+        rows={rows}
+        minWidth="46rem"
+      />
+      <p class="mt-6 text-sm text-ink-500">
+        Electrician is a two-year trade and COPA is a one-year trade, both affiliated to NCVT.
+        Sanctioned strength is per unit.
+      </p>
+      <div class="mt-6 rounded-2xl border border-saffron-200 bg-saffron-50 p-5 text-sm text-ink-700">
+        <p class="flex items-start gap-3">
+          <Icon name="calendar" size={18} class="mt-0.5 shrink-0 text-saffron-700" />
+          <span>Every year 150 hours of mandatory OJT (On the Job Training) at a nearby industry is
+          required; wherever an industry is not available, a group project is mandatory.</span>
         </p>
       </div>
     </div>

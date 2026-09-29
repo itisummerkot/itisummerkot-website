@@ -100,15 +100,6 @@ export const otherLinks: NavChild[] = [
 
 export const trades = [
   {
-    name: "Mechanic Diesel",
-    code: "DGT/1008",
-    duration: "2 Years",
-    eligibility: "10th Pass",
-    icon: "engine",
-    description:
-      "Repair and maintenance of diesel engines used in machines and vehicles, with hands-on diagnosis and fault fixing.",
-  },
-  {
     name: "Electrician",
     code: "DGT/1001",
     duration: "2 Years",
@@ -119,38 +110,11 @@ export const trades = [
   },
   {
     name: "Computer Operator & Programming Assistant (COPA)",
-    code: "DGT/1019",
+    code: "DGT/1003",
     duration: "1 Year",
     eligibility: "10th Pass",
     icon: "chip",
     description:
       "Computer operations, data entry, office software and the fundamentals of programming and program logic.",
-  },
-  {
-    name: "Sewing Technology",
-    code: "DGT/1011",
-    duration: "1 Year",
-    eligibility: "10th Pass",
-    icon: "needle",
-    description:
-      "Cutting, stitching and tailoring techniques for the garment and fashion industry, including machine operation.",
-  },
-  {
-    name: "Plumber",
-    code: "DGT/1014",
-    duration: "1 Year",
-    eligibility: "10th Pass",
-    icon: "pipe",
-    description:
-      "Installation and maintenance of water supply, sanitary fittings and drainage systems in buildings.",
-  },
-  {
-    name: "Pump Operator Cum Mechanic (POCM)",
-    code: "DGT/1044",
-    duration: "1 Year",
-    eligibility: "10th Pass",
-    icon: "pump",
-    description:
-      "Operation, maintenance and repair of pumps and pumping machinery used in industry and agriculture.",
   },
 ];

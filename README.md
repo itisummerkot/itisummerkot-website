@@ -48,7 +48,7 @@ src/
 public/
   CNAME            Custom domain for GitHub Pages
   images/          Logos and photographs
-  downloads/       Prospectus and RTI documents (PDF)
+  downloads/       RTI document (PDF); prospectus links to the official portal
 .github/workflows/
   ci.yml           Typecheck + build on pushes and pull requests
   deploy.yml       Build + deploy to GitHub Pages on main
