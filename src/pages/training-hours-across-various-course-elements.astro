@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import DataTable from "../components/DataTable.astro";
+
+const twoYear = [
+  ["01", "Professional Skill (Trade Practical)", "840", "840"],
+  ["02", "Professional Knowledge (Trade Theory)", "240", "300"],
+  ["03", "Employability Skills", "120", "60"],
+  ["Total", "", "1200", "1200"],
+  ["04", "Employability Skills", "150", "150"],
+];
+
+const oneYear = [
+  ["01", "Professional Skill (Trade Practical)", "840"],
+  ["02", "Professional Knowledge (Trade Theory)", "240"],
+  ["03", "Employability Skills", "120"],
+  ["Total", "", "1200"],
+  ["04", "Employability Skills", "150"],
+];
+---
+
+<BaseLayout title="Training Hours Across Course Elements" description="Notional training hours across course elements for two-year and one-year trades.">
+  <PageHeader title="Training Hours Across Various Course Elements" subtitle="Notional training hours distributed across trade practicals, trade theory and employability skills." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl space-y-10">
+      <div>
+        <h2 class="font-display text-xl font-bold text-brand-950">Two-Year Trade</h2>
+        <div class="mt-4">
+          <DataTable headers={["Sr. No.", "Course Elements", "1st Year", "2nd Year"]} rows={twoYear} minWidth="34rem" />
+        </div>
+      </div>
+      <div>
+        <h2 class="font-display text-xl font-bold text-brand-950">One-Year Trade</h2>
+        <div class="mt-4">
+          <DataTable headers={["Sr. No.", "Course Elements", "1st Year"]} rows={oneYear} minWidth="30rem" />
+        </div>
+      </div>
+      <p class="rounded-xl border border-saffron-200 bg-saffron-50 p-4 text-sm text-ink-700">
+        <strong>Note:</strong> Every year 150 hours of mandatory OJT (On the Job Training) at a nearby
+        industry is required; wherever an industry is not available, a group project is mandatory.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

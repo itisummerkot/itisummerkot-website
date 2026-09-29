@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.astro";
+
+const points = [
+  "The Craftsman Training Scheme (CTS) is the flagship skill training scheme of the Government of India.",
+  "Training is delivered under the National Council for Vocational Training (NCVT) framework.",
+  "On successful completion of the All India Trade Test (AITT), trainees receive the National Trade Certificate (NTC).",
+  "The NTC is recognised nationally and internationally for employment and higher studies.",
+];
+---
+
+<BaseLayout title="Craftsman Training Schemes" description="Craftsman Training Scheme (CTS) at Govt. ITI Summerkot.">
+  <PageHeader title="Craftsman Training Schemes" subtitle="NCVT craft training leading to a National Trade Certificate." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl">
+      <div class="prose-site text-ink-600">
+        <p>
+          The Craftsman Training Scheme is designed to produce skilled workers for industry by
+          imparting theoretical and practical training in various trades. Our NCVT-affiliated trades
+          follow the CTS curriculum prescribed by DGT.
+        </p>
+      </div>
+      <ul class="mt-6 space-y-3">
+        {
+          points.map((p) => (
+            <li class="flex gap-3 text-sm leading-relaxed text-ink-600">
+              <Icon name="check" size={18} class="mt-0.5 shrink-0 text-brand-700" />{p}
+            </li>
+          ))
+        }
+      </ul>
+      <a href="/trades-affiliated-to-ncvt/" class="btn btn-primary mt-8">
+        View Affiliated Trades <Icon name="arrow-right" size={17} />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

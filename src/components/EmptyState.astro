@@ -1,0 +1,24 @@
+---
+import Icon from "./Icon.astro";
+
+export interface Props {
+  title?: string;
+  message?: string;
+}
+
+const {
+  title = "Information being updated",
+  message = "The institute is in the process of updating this information. Please check back soon or contact us for details.",
+} = Astro.props;
+---
+
+<div class="rounded-2xl border border-dashed border-ink-300 bg-ink-50 px-6 py-12 text-center">
+  <span class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-brand-100 text-brand-700">
+    <Icon name="file-text" size={22} />
+  </span>
+  <h3 class="mt-4 font-display text-lg font-bold text-brand-950">{title}</h3>
+  <p class="mx-auto mt-2 max-w-md text-sm leading-relaxed text-ink-500">{message}</p>
+  <a href="/contact-us/" class="btn btn-outline mt-5">
+    <Icon name="phone" size={16} /> Contact the Institute
+  </a>
+</div>

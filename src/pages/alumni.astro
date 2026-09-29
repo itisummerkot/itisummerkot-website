@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import EmptyState from "../components/EmptyState.astro";
+---
+
+<BaseLayout title="Alumni" description="Alumni network of Govt. ITI Summerkot.">
+  <PageHeader title="Alumni" subtitle="Our former trainees, now contributing across industry and enterprise." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl">
+      <EmptyState title="Alumni records coming soon" message="The institute is building its alumni network. Former trainees are invited to share their details and stay connected." />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import DataTable from "../components/DataTable.astro";
+import { site } from "../data/site";
+
+const rows = [
+  ["Present Electric Load", "90 KWV"],
+  ["Date of Connection", "13/10/2018"],
+  ["Connection in the name of", "Principal ITI Summerkot"],
+  ["Meter No.", "200008000260"],
+  ["Seal No.", "5002607860"],
+];
+---
+
+<BaseLayout title="Electric Power Supply" description="Electric power supply details of Govt. ITI Summerkot — load, connection date, meter and seal numbers.">
+  <PageHeader title="Electric Power Supply" subtitle="Electrical connection and metering particulars of the institute." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-2xl">
+      <DataTable headers={["Parameter", "Details"]} rows={rows} variant="kv" minWidth="28rem" />
+      <p class="mt-5 text-sm text-ink-500">
+        For any electricity-related query, contact the institute office at
+        <a href={`tel:${site.phoneHref}`} class="font-medium text-brand-700 hover:underline">{site.phone}</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

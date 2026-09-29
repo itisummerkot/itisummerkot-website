@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.astro";
+
+const points = [
+  "Apprenticeship training combines on-the-job experience with structured learning under the Apprentices Act.",
+  "Trainees who complete their NCVT trade are eligible to undertake apprenticeship in registered establishments.",
+  "Stipends are paid to apprentices as per Government norms during the training period.",
+  "The National Apprenticeship Promotion Scheme (NAPS) supports establishments with sharing of stipend cost.",
+];
+---
+
+<BaseLayout title="Apprenticeship Training Schemes" description="Apprenticeship training schemes available to trainees of Govt. ITI Summerkot.">
+  <PageHeader title="Apprenticeship Training Schemes" subtitle="Earn-while-you-learn opportunities for passing-out trainees." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl">
+      <div class="prose-site text-ink-600">
+        <p>
+          Apprenticeship training is a structured programme of on-the-job training in an establishment,
+          supplemented by related instruction. It enables ITI pass-outs to gain real industry experience
+          while earning a stipend.
+        </p>
+      </div>
+      <ul class="mt-6 space-y-3">
+        {
+          points.map((p) => (
+            <li class="flex gap-3 text-sm leading-relaxed text-ink-600">
+              <Icon name="check" size={18} class="mt-0.5 shrink-0 text-brand-700" />{p}
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="https://www.apprenticeshipindia.gov.in/" target="_blank" rel="noopener" class="btn btn-primary">
+          Apprenticeship Training Portal <Icon name="external-link" size={15} />
+        </a>
+        <a href="https://msde.gov.in/en/schemes-initiatives/apprenticeship-training/naps" target="_blank" rel="noopener" class="btn btn-outline">
+          About NAPS <Icon name="external-link" size={15} />
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

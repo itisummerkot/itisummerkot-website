@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import DataTable from "../components/DataTable.astro";
+import Icon from "../components/Icon.astro";
+
+const officers = [
+  ["Rajnish Chauhan", "Group Instructor / DDO", "+91 94184 88916"],
+  ["Smt. Samritika", "First Appellate Authority", "01907-266572"],
+];
+---
+
+<BaseLayout title="Right to Information" description="RTI officers and suo moto disclosures of Govt. ITI Summerkot.">
+  <PageHeader title="Right to Information" subtitle="RTI officers and disclosures under the Right to Information Act, 2005." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl space-y-10">
+      <div>
+        <h2 class="font-display text-xl font-bold text-brand-950">RTI Officers</h2>
+        <div class="mt-4">
+          <DataTable headers={["Officer Name", "Designation", "Contact No."]} rows={officers} minWidth="36rem" />
+        </div>
+      </div>
+      <div>
+        <h2 class="font-display text-xl font-bold text-brand-950">Disclosures</h2>
+        <a
+          href="/downloads/rti-suo-moto-disclosure.pdf"
+          class="card card-hover mt-4 flex items-center gap-4 p-5"
+        >
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+            <Icon name="file-text" size={20} />
+          </span>
+          <span class="flex-1">
+            <span class="block font-semibold text-brand-950">Suo Moto disclosure under Section 4 of the RTI Act, 2005</span>
+            <span class="block text-sm text-ink-500">PDF document · click to download</span>
+          </span>
+          <Icon name="download" size={20} class="text-brand-700" />
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

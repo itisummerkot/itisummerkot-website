@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import DataTable from "../components/DataTable.astro";
+import { trades } from "../data/site";
+
+const rows = [
+  ["Electrician", "2 Years", "10th Pass"],
+  ["COPA", "1 Year", "10th Pass"],
+];
+---
+
+<BaseLayout title="Admission Criteria" description="Admission criteria, duration and eligibility for trades at Govt. ITI Summerkot.">
+  <PageHeader title="Admission Criteria" subtitle="Duration of training and eligibility qualification for each trade." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl">
+      <DataTable headers={["Name of Trade", "Duration of Training", "Eligibility Qualification"]} rows={rows} minWidth="34rem" />
+      <div class="mt-8 rounded-2xl border border-ink-100 bg-ink-50 p-6">
+        <h2 class="font-display text-lg font-bold text-brand-950">Courses offered by the institute</h2>
+        <p class="mt-2 text-sm leading-relaxed text-ink-600">
+          The institute also delivers the following NCVT trades. For current-year eligibility and
+          seat matrix, refer to the official admission portal or contact the institute office.
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {
+            trades.map((t) => (
+              <span class="rounded-full border border-ink-200 bg-white px-3 py-1 text-sm font-medium text-ink-700">
+                {t.name} <span class="text-ink-400">·</span> <span class="text-brand-700">{t.duration}</span>
+              </span>
+            ))
+          }
+        </div>
+        <a href="https://www.hptechboard.com/" target="_blank" rel="noopener" class="btn btn-primary mt-5">
+          Admission / OLA Portal
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

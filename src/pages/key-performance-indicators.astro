@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import EmptyState from "../components/EmptyState.astro";
+---
+
+<BaseLayout title="Key Performance Indicators" description="Key Performance Indicators (KPIs) of Govt. ITI Summerkot.">
+  <PageHeader title="Key Performance Indicators" subtitle="Indicators that measure the institute's performance and outcomes." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl">
+      <EmptyState title="KPI data will be published here" message="The Key Performance Indicators table is currently being compiled by the institute. Please check back soon." />
+    </div>
+  </section>
+</BaseLayout>

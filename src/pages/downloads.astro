@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.astro";
+
+const files = [
+  { title: "ITI Prospectus 2023", href: "/downloads/iti-prospectus-2023.pdf", meta: "PDF · 83 pages" },
+  { title: "RTI — Suo Moto Disclosure under Section 4", href: "/downloads/rti-suo-moto-disclosure.pdf", meta: "PDF · 10 pages" },
+];
+---
+
+<BaseLayout title="Downloads" description="Download prospectus, RTI disclosures and other documents from Govt. ITI Summerkot.">
+  <PageHeader title="Downloads" subtitle="Prospectus, disclosures and other official documents." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-3xl">
+      <div class="space-y-4">
+        {
+          files.map((f) => (
+            <a href={f.href} download class="card card-hover flex items-center gap-4 p-5">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+                <Icon name="file-text" size={20} />
+              </span>
+              <span class="flex-1">
+                <span class="block font-semibold text-brand-950">{f.title}</span>
+                <span class="block text-sm text-ink-500">{f.meta}</span>
+              </span>
+              <Icon name="download" size={20} class="text-brand-700" />
+            </a>
+          ))
+        }
+      </div>
+      <p class="mt-6 text-sm text-ink-500">
+        Documents open as PDF. For a printed copy, please contact the institute office.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

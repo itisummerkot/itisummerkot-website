@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+
+const links = [
+  { label: "Home", href: "/" },
+  { label: "About Institute", href: "/about-institute/" },
+  { label: "Admission Criteria", href: "/admission-criteria/" },
+  { label: "Trades Affiliated to NCVT", href: "/trades-affiliated-to-ncvt/" },
+  { label: "Downloads", href: "/downloads/" },
+  { label: "Contact Us", href: "/contact-us/" },
+];
+---
+
+<BaseLayout title="Page Not Found" description="The page you are looking for could not be found.">
+  <section class="bg-gradient-to-br from-brand-950 to-brand-800">
+    <div class="container-page flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+      <p class="font-display text-7xl font-extrabold text-saffron-400 sm:text-9xl">404</p>
+      <h1 class="mt-4 font-display text-3xl font-extrabold text-white sm:text-4xl">Page not found</h1>
+      <p class="mt-4 max-w-lg text-brand-100">
+        The page you are looking for may have been moved, renamed or is temporarily unavailable.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/" class="btn btn-accent"><Icon name="home" size={17} /> Back to Home</a>
+        <a href="/contact-us/" class="btn btn-ghost-light">Contact Us</a>
+      </div>
+      <nav class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-brand-200">
+        {links.map((l) => <a href={l.href} class="hover:text-saffron-300">{l.label}</a>)}
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

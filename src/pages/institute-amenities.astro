@@ -1,0 +1,35 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.astro";
+
+const facilities = [
+  { title: "Theory Classrooms", desc: "Spacious classrooms for trade theory and employability skills.", icon: "building" },
+  { title: "Trade Workshops", desc: "Well-equipped workshops for each trade with tools and machinery.", icon: "wrench" },
+  { title: "Computer Lab", desc: "Computing facilities supporting COPA and ICT-enabled learning.", icon: "chip" },
+  { title: "Library & Reading Room", desc: "Reference material and study space for trainees.", icon: "file-text" },
+  { title: "Electric Power Supply", desc: "Dedicated 90 KW connection supporting workshop machinery.", icon: "bolt" },
+  { title: "Campus & Access", desc: "Rural campus at Summerkot, well connected by road.", icon: "map-pin" },
+];
+---
+
+<BaseLayout title="Institute Amenities" description="Amenities and facilities available at Govt. ITI Summerkot.">
+  <PageHeader title="Institute Amenities" subtitle="Facilities that support effective training and trainee welfare." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-5xl">
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          facilities.map((f) => (
+            <div class="card p-6">
+              <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+                <Icon name={f.icon} size={20} />
+              </span>
+              <h3 class="mt-4 font-display text-base font-bold text-brand-950">{f.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-500">{f.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

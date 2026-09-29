@@ -1,0 +1,75 @@
+---
+import "@fontsource-variable/inter";
+import "@fontsource-variable/plus-jakarta-sans";
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title,
+  description = `${site.name} — a Government Industrial Training Institute under the Department of Technical Education, Vocational & Industrial Training, Summerkot, District Shimla, Himachal Pradesh.`,
+  image = "/images/WhatsApp-Image-2024-10-10-at-12.48.11-PM.jpeg",
+} = Astro.props;
+
+const fullTitle = title ? `${title} | ${site.shortName}` : `${site.shortName} — Govt. Industrial Training Institute, Summerkot (H.P.)`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+---
+
+<!doctype html>
+<html lang="en" class="scroll-pt-32">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/jpeg" href="/images/179Logo-Header-hp.jpg" />
+    <link rel="apple-touch-icon" href="/images/179Logo-Header-hp.jpg" />
+    <meta name="theme-color" content="#14235f" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.shortName} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var fs = localStorage.getItem("iti-font-scale");
+          if (fs) document.documentElement.style.setProperty("--font-scale", fs);
+          var hc = localStorage.getItem("iti-contrast");
+          if (hc === "high") document.documentElement.setAttribute("data-contrast", "high");
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-white">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:rounded-lg focus:bg-brand-900 focus:px-4 focus:py-2 focus:text-white focus:shadow-lg"
+    >
+      Skip to Main Content
+    </a>
+    <Header />
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

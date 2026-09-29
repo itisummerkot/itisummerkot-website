@@ -1,0 +1,301 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Icon from "../components/Icon.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { site, trades } from "../data/site";
+
+const stats = [
+  { value: "2017", label: "Established", icon: "calendar" },
+  { value: "6", label: "Trades Offered", icon: "wrench" },
+  { value: "NCVT", label: "Affiliated", icon: "shield-check" },
+  { value: "90 KW", label: "Connected Load", icon: "bolt" },
+];
+
+const highlights = [
+  { title: "Industry-Ready Skills", desc: "Hands-on workshop training aligned to NCVT and DGT curriculum standards.", icon: "target" },
+  { title: "Mandatory OJT", desc: "Every year 150 hours of On-the-Job Training in nearby industries.", icon: "briefcase" },
+  { title: "Expert Instructors", desc: "Experienced technical and administrative staff guiding every trainee.", icon: "users" },
+  { title: "Placement Support", desc: "Apprenticeship and placement assistance for passing-out trainees.", icon: "award" },
+];
+
+const gallery = [
+  "/images/WhatsApp-Image-2024-10-10-at-12.48.11-PM.jpeg",
+  "/images/WhatsApp-Image-2024-10-05-at-8.33.25-AM.jpeg",
+  "/images/WhatsApp-Image-2024-10-05-at-8.33.25-AM-1.jpeg",
+  "/images/WhatsApp-Image-2024-10-05-at-8.33.26-AM.jpeg",
+  "/images/WhatsApp-Image-2024-10-05-at-8.33.27-AM.jpeg",
+  "/images/WhatsApp-Image-2024-10-05-at-8.33.27-AM-1.jpeg",
+].map((src) => ({ src }));
+
+const quickAccess = [
+  { title: "Downloads", desc: "Prospectus & documents", href: "/downloads/", icon: "download" },
+  { title: "Tenders", desc: "Latest tender notices", href: "/tenders/", icon: "file-text" },
+  { title: "Placements", desc: "Trainee placement records", href: "/placements/", icon: "briefcase" },
+  { title: "Overall Results", desc: "AITT performance", href: "/overall-results/", icon: "award" },
+  { title: "Right to Information", desc: "RTI disclosures", href: "/right-to-information/", icon: "shield-check" },
+  { title: "Contact Us", desc: "Get in touch", href: "/contact-us/", icon: "phone" },
+];
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="relative isolate overflow-hidden bg-brand-950">
+    <img
+      src="/images/WhatsApp-Image-2024-10-10-at-12.48.11-PM.jpeg"
+      alt=""
+      class="absolute inset-0 h-full w-full object-cover opacity-30"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-950 via-brand-950/90 to-brand-900/60"></div>
+    <div class="container-page relative grid gap-12 py-16 lg:grid-cols-12 lg:py-24">
+      <div class="lg:col-span-7">
+        <p class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold tracking-wide text-saffron-300 backdrop-blur">
+          <span class="inline-block h-2 w-2 animate-pulse rounded-full bg-saffron-400"></span>
+          Government of Himachal Pradesh &middot; DTEV&amp;IT
+        </p>
+        <h1 class="mt-5 font-display text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          Skills that build <span class="text-saffron-400">careers</span> and a
+          <span class="text-saffron-400">self-reliant</span> future.
+        </h1>
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-brand-100 sm:text-lg">
+          {site.name} imparts world-class vocational training across six trades, preparing
+          trainees for meaningful employment and enterprise.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#trades" class="btn btn-accent">
+            Explore Trades <Icon name="arrow-right" size={17} />
+          </a>
+          <a href="/about-institute/" class="btn btn-ghost-light">About the Institute</a>
+        </div>
+        <dl class="mt-10 grid max-w-xl grid-cols-2 gap-6 sm:grid-cols-4">
+          {stats.map((s) => (
+            <div>
+              <dt class="text-xs font-medium uppercase tracking-wider text-brand-300">{s.label}</dt>
+              <dd class="mt-1 font-display text-2xl font-extrabold text-white">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+
+      <div class="lg:col-span-5 lg:pl-4">
+        <div class="rounded-2xl border border-white/15 bg-white/5 p-6 backdrop-blur-md">
+          <p class="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-saffron-300">
+            <Icon name="sparkles" size={15} /> Latest News
+          </p>
+          <h2 class="mt-3 font-display text-lg font-bold text-white">
+            Online counselling for ITI admission is live
+          </h2>
+          <p class="mt-2 text-sm leading-relaxed text-brand-100">
+            As per schedule, the online counselling module for ITI sessions has been made
+            live. Apply through the HPTechBoard admission portal.
+          </p>
+          <a
+            href="https://www.eakadamik.in/hptsb_iti_2023/"
+            target="_blank"
+            rel="noopener"
+            class="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-saffron-300 hover:text-saffron-200"
+          >
+            Apply now <Icon name="external-link" size={15} />
+          </a>
+          <div class="mt-6 border-t border-white/10 pt-5">
+            <div class="flex flex-wrap gap-2">
+              <a href="/news-and-updates/" class="btn btn-ghost-light !py-2 !text-xs">All Updates</a>
+              <a href="/downloads/" class="btn btn-ghost-light !py-2 !text-xs">Prospectus</a>
+              <a href="/tenders/" class="btn btn-ghost-light !py-2 !text-xs">Tenders</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Announcement ticker -->
+  <div class="border-y border-saffron-200 bg-saffron-50">
+    <div class="container-page flex items-center gap-4 py-2.5">
+      <span class="flex shrink-0 items-center gap-2 rounded-md bg-saffron-500 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
+        <Icon name="sparkles" size={14} /> News
+      </span>
+      <div class="marquee-track relative flex-1 overflow-hidden">
+        <div class="animate-marquee flex w-max gap-16 whitespace-nowrap text-sm text-ink-700">
+          {[0, 1].map(() => (
+            <>
+              <span>Admission open for ITI session — apply at the HPTechBoard portal.</span>
+              <span>150 hours mandatory On-the-Job Training every year.</span>
+              <span>NCVT-affiliated Electrician, COPA, Mechanic Diesel, Sewing Technology &amp; more.</span>
+              <span>Trainee Grievance Redressal Mechanism available online.</span>
+            </>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Welcome -->
+  <section class="container-page py-16 lg:py-24">
+    <div class="grid items-center gap-12 lg:grid-cols-2">
+      <div class="relative">
+        <div class="grid grid-cols-5 grid-rows-5 gap-3">
+          <img src="/images/WhatsApp-Image-2024-10-05-at-8.33.25-AM.jpeg" alt="Training at ITI Summerkot" class="col-span-3 row-span-3 h-full w-full rounded-2xl object-cover shadow-lift" />
+          <img src="/images/WhatsApp-Image-2024-10-05-at-8.33.26-AM.jpeg" alt="Workshop session" class="col-span-2 row-span-3 h-full w-full rounded-2xl object-cover shadow-soft" />
+          <img src="/images/WhatsApp-Image-2024-10-05-at-8.33.27-AM-1.jpeg" alt="Trainees at work" class="col-span-2 row-span-3 h-full w-full rounded-2xl object-cover shadow-soft" />
+          <img src="/images/WhatsApp-Image-2024-10-05-at-8.33.27-AM-2.jpeg" alt="Institute facility" class="col-span-3 row-span-3 h-full w-full rounded-2xl object-cover shadow-lift" />
+        </div>
+        <div class="absolute -bottom-5 left-5 hidden rounded-xl border border-ink-100 bg-white px-5 py-3 shadow-lift sm:block">
+          <p class="font-display text-2xl font-extrabold text-brand-800">100%</p>
+          <p class="text-xs font-medium text-ink-500">NCVT affiliated courses</p>
+        </div>
+      </div>
+
+      <div>
+        <SectionHeading
+          eyebrow="Welcome"
+          title="A Government ITI shaping skilled professionals since 2017"
+          description="The Government Industrial Training Institute, Summerkot, in District Shimla, offers practical, job-oriented vocational training designed to prepare individuals for employment in their respective fields."
+        />
+        <div class="prose-site mt-5 text-ink-600">
+          <p>
+            Our workshops and classrooms deliver a blend of trade practicals, trade theory and
+            employability skills, backed by mandatory On-the-Job Training with nearby industry.
+            Trainees graduate with the confidence, discipline and technical competence that
+            employers value.
+          </p>
+        </div>
+        <div class="mt-7 grid gap-4 sm:grid-cols-2">
+          {highlights.map((h) => (
+            <div class="flex gap-3">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+                <Icon name={h.icon} size={20} />
+              </span>
+              <div>
+                <p class="text-sm font-bold text-brand-950">{h.title}</p>
+                <p class="mt-0.5 text-sm leading-relaxed text-ink-500">{h.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <a href="/about-institute/" class="btn btn-primary mt-8">
+          Know More <Icon name="arrow-right" size={17} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trades -->
+  <section id="trades" class="bg-ink-50 py-16 lg:py-24">
+    <div class="container-page">
+      <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+        <SectionHeading
+          eyebrow="Institute Trades"
+          title="Courses affiliated to NCVT"
+          description="Choose from six industry-focused trades, each delivered by qualified instructors in well-equipped workshops."
+        />
+        <a href="/trades-affiliated-to-ncvt/" class="btn btn-outline shrink-0">
+          View all details <Icon name="arrow-right" size={17} />
+        </a>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          trades.map((t) => (
+            <article class="card card-hover group flex flex-col p-6">
+              <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-brand-700 to-brand-900 text-white shadow-soft transition-transform group-hover:scale-105">
+                <Icon name={t.icon} size={24} />
+              </span>
+              <h3 class="mt-5 font-display text-lg font-bold text-brand-950">{t.name}</h3>
+              <div class="mt-2 flex flex-wrap gap-2">
+                <span class="rounded-full bg-brand-50 px-2.5 py-0.5 text-xs font-semibold text-brand-700">{t.duration}</span>
+                <span class="rounded-full bg-saffron-50 px-2.5 py-0.5 text-xs font-semibold text-saffron-700">{t.eligibility}</span>
+                <span class="rounded-full bg-ink-100 px-2.5 py-0.5 text-xs font-medium text-ink-600">{t.code}</span>
+              </div>
+              <p class="mt-4 flex-1 text-sm leading-relaxed text-ink-500">{t.description}</p>
+              <a href="/trades-affiliated-to-ncvt/" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-700 hover:gap-2.5 transition-all">
+                Learn more <Icon name="arrow-right" size={16} />
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Principal desk -->
+  <section class="container-page py-16 lg:py-24">
+    <div class="overflow-hidden rounded-2xl border border-ink-100 bg-gradient-to-br from-brand-950 to-brand-900 shadow-lift">
+      <div class="grid lg:grid-cols-5">
+        <div class="flex flex-col justify-center p-8 sm:p-12 lg:col-span-3">
+          <Icon name="quote" size={40} class="text-saffron-400/70" />
+          <blockquote class="mt-5 font-display text-xl font-medium leading-relaxed text-white sm:text-2xl">
+            I personally believe that ITI Summerkot is imparting world-class training and skills to
+            its trainees — skills that make them self-reliant, independent and enterprising.
+            &ldquo;Knowing is not enough; we must apply. Willing is not enough; we must do.&rdquo;
+          </blockquote>
+          <div class="mt-7 flex items-center gap-4">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-saffron-500 font-display text-lg font-extrabold text-brand-950">RC</span>
+            <div>
+              <p class="font-bold text-white">Rajnish Chauhan</p>
+              <p class="text-sm text-brand-200">Instructor / DDO</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative min-h-[240px] lg:col-span-2">
+          <img src="/images/WhatsApp-Image-2024-10-05-at-8.33.26-AM-1.jpeg" alt="ITI Summerkot campus" class="absolute inset-0 h-full w-full object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-950/70 to-transparent lg:bg-gradient-to-r"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="bg-brand-950 py-16 lg:py-24">
+    <div class="container-page">
+      <SectionHeading
+        eyebrow="Photo Gallery"
+        title="Life at ITI Summerkot"
+        description="A glimpse of our workshops, trainees and campus."
+        align="center"
+        light
+      />
+      <div class="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-3">
+        {
+          gallery.map((g) => (
+            <a
+              href={g.src}
+              target="_blank"
+              rel="noopener"
+              class="group relative block overflow-hidden rounded-xl"
+            >
+              <img
+                src={g.src}
+                alt="ITI Summerkot gallery image"
+                loading="lazy"
+                class="aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <span class="absolute inset-0 bg-brand-950/0 transition group-hover:bg-brand-950/30"></span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick access -->
+  <section class="container-page py-16 lg:py-24">
+    <SectionHeading eyebrow="Quick Access" title="Everything you may need, one click away" align="center" />
+    <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        quickAccess.map((q) => (
+          <a href={q.href} class="card card-hover group flex items-center gap-4 p-5">
+            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-brand-50 text-brand-700 transition group-hover:bg-brand-700 group-hover:text-white">
+              <Icon name={q.icon} size={20} />
+            </span>
+            <span class="flex-1">
+              <span class="block font-semibold text-brand-950">{q.title}</span>
+              <span class="block text-sm text-ink-500">{q.desc}</span>
+            </span>
+            <Icon name="arrow-right" size={18} class="text-ink-300 transition group-hover:translate-x-1 group-hover:text-brand-700" />
+          </a>
+        ))
+      }
+    </div>
+  </section>
+</BaseLayout>

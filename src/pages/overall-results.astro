@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import EmptyState from "../components/EmptyState.astro";
+---
+
+<BaseLayout title="Overall Results" description="Overall AITT results of Govt. ITI Summerkot.">
+  <PageHeader title="Overall Results" subtitle="Trainees admitted, appeared for AITT, passed and certificates issued." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl">
+      <EmptyState title="Result data will be published here" message="Trade-wise results for the All India Trade Test (AITT) are being compiled and will be published shortly." />
+    </div>
+  </section>
+</BaseLayout>

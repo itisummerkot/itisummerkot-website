@@ -1,0 +1,42 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.astro";
+
+const news = [
+  {
+    date: "30 Jun 2023",
+    title: "Online counselling module for ITI admission goes live",
+    body: "As per schedule, the online counselling module for ITI academic sessions has been made live successfully. Candidates can complete choice filling and counselling through the HPTechBoard portal.",
+    link: "https://www.eakadamik.in/hptsb_iti_2023/",
+    linkLabel: "Open counselling portal",
+  },
+];
+---
+
+<BaseLayout title="News and Updates" description="Latest news and updates from Govt. ITI Summerkot.">
+  <PageHeader title="News and Updates" subtitle="Announcements, notifications and events." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-3xl">
+      <ol class="relative space-y-8 border-l-2 border-ink-200 pl-6">
+        {
+          news.map((n) => (
+            <li class="relative">
+              <span class="absolute -left-[1.9rem] top-1 flex h-4 w-4 items-center justify-center rounded-full border-2 border-white bg-saffron-500 ring-2 ring-saffron-200"></span>
+              <p class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-ink-500">
+                <Icon name="calendar" size={14} /> {n.date}
+              </p>
+              <h2 class="mt-2 font-display text-lg font-bold text-brand-950">{n.title}</h2>
+              <p class="mt-2 text-sm leading-relaxed text-ink-600">{n.body}</p>
+              {n.link && (
+                <a href={n.link} target="_blank" rel="noopener" class="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-brand-700 hover:text-brand-800">
+                  {n.linkLabel} <Icon name="external-link" size={15} />
+                </a>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+</BaseLayout>

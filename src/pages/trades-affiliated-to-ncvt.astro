@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import DataTable from "../components/DataTable.astro";
+
+const rows = [
+  ["Electrician (NCVT)", "1", "2 Years", "20"],
+  ["COPA (NCVT)", "1", "1 Year", "24"],
+];
+---
+
+<BaseLayout title="Trades Affiliated to NCVT" description="NCVT-affiliated trades at Govt. ITI Summerkot with units, duration and sanctioned intake.">
+  <PageHeader title="Trades Affiliated to NCVT" subtitle="Units, duration and sanctioned intake for each NCVT trade." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl">
+      <DataTable
+        headers={["Name of the Trade", "No. of Units", "Duration of Trade", "Sanctioned Intake"]}
+        rows={rows}
+        minWidth="36rem"
+      />
+      <p class="mt-5 text-sm text-ink-500">
+        Syllabus for each trade is available on the DGET / NCVT portal.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

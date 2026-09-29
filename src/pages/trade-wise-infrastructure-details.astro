@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import DataTable from "../components/DataTable.astro";
+
+const rows = [
+  ["Electrician", "1", "98 × 98.67", "1", "98 × 87.82", "9969.66 Sq.m"],
+  ["COPA", "1", "70 × 87.72", "1", "70 × 87.72", "6140.4 Sq.m"],
+];
+---
+
+<BaseLayout title="Trade Wise Infrastructure Details" description="Classroom and workshop area available trade-wise at Govt. ITI Summerkot.">
+  <PageHeader title="Trade Wise Infrastructure Details" subtitle="Classroom and workshop area available for each trade." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-5xl">
+      <DataTable
+        headers={["Trade", "Unit", "Class Room Area per Unit", "Total Class Room Area", "Workshop Area per Unit", "Total Workshop Area"]}
+        rows={rows}
+        minWidth="48rem"
+      />
+    </div>
+  </section>
+</BaseLayout>

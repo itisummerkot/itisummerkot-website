@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import DataTable from "../components/DataTable.astro";
+import Icon from "../components/Icon.astro";
+import { site } from "../data/site";
+
+const rows = [
+  ["Name of the Institute", site.shortName],
+  ["Address of the Institute", site.address],
+  ["Date of Establishment", site.established],
+  ["DGET File Reference", "DGT-12/1/2018-TC"],
+  ["Code Allotted by DGET", site.dgetCode],
+  ["Contact No.", site.phone],
+  ["Fax No.", site.phone],
+  ["E-mail ID", site.email],
+  ["Location (Rural / Urban)", "Rural"],
+  ["Approach / How to Reach", "By Road"],
+];
+---
+
+<BaseLayout
+  title="About Institute"
+  description="About Govt. Industrial Training Institute Summerkot — name, establishment, DGET code, contact details and location."
+>
+  <PageHeader title="About Institute" subtitle="Institution profile and official particulars." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="grid gap-10 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <div class="prose-site text-ink-600">
+          <p>
+            The {site.name} is a government vocational training institute under the Department of
+            Technical Education, Vocational &amp; Industrial Training, Himachal Pradesh. Established
+            in 2017 at Summerkot in District Shimla, the institute delivers NCVT-affiliated craft
+            training designed to create skilled, employable and self-reliant youth.
+          </p>
+          <p>
+            Training combines trade practicals, trade theory and employability skills, supported by
+            mandatory On-the-Job Training with nearby industry. The table alongside lists the
+            institute's official particulars.
+          </p>
+        </div>
+        <div class="mt-8">
+          <h2 class="font-display text-xl font-bold text-brand-950">Institute Particulars</h2>
+          <div class="mt-4">
+            <DataTable headers={["Particular", "Details"]} rows={rows} variant="kv" minWidth="32rem" />
+          </div>
+        </div>
+      </div>
+      <aside class="space-y-6">
+        <img src="/images/WhatsApp-Image-2024-10-05-at-8.33.26-AM-1.jpeg" alt="Govt. ITI Summerkot campus" class="w-full rounded-2xl object-cover shadow-soft aspect-[4/3]" />
+        <div class="card p-6">
+          <h3 class="font-display text-base font-bold text-brand-950">Reach the Institute</h3>
+          <ul class="mt-4 space-y-3 text-sm text-ink-600">
+            <li class="flex gap-3"><Icon name="map-pin" size={18} class="mt-0.5 shrink-0 text-brand-700" />{site.address}</li>
+            <li class="flex gap-3"><Icon name="phone" size={18} class="mt-0.5 shrink-0 text-brand-700" /><a href={`tel:${site.phoneHref}`} class="hover:text-brand-700">{site.phone}</a></li>
+            <li class="flex gap-3"><Icon name="mail" size={18} class="mt-0.5 shrink-0 text-brand-700" /><a href={`mailto:${site.email}`} class="break-all hover:text-brand-700">{site.email}</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

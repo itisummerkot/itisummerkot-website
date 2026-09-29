@@ -1,0 +1,44 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.astro";
+
+const benefits = [
+  { title: "Real Work Environment", desc: "Learn tools and equipment in a live-work, simulated or training environment.", icon: "building" },
+  { title: "Industry Alignment", desc: "Training designed to meet the skilled workforce requirements of industry.", icon: "target" },
+  { title: "150 Hours Every Year", desc: "Mandatory OJT for each year, or a group project where industry is unavailable.", icon: "calendar" },
+  { title: "Employability", desc: "Hands-on competence that improves placement and productivity.", icon: "briefcase" },
+];
+---
+
+<BaseLayout title="On Job Training" description="On-the-Job Training (OJT) at Govt. ITI Summerkot.">
+  <PageHeader title="On Job Training" subtitle="Practical training in a real or near-real working environment." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto max-w-4xl">
+      <div class="prose-site text-ink-600">
+        <p>
+          On-the-job training (OJT) is a practical approach to acquiring new competencies and skills
+          needed for a job in a real, or close to real, working environment. OJT is conducted in the
+          industry environment in order to meet the skilled workforce requirements of industry.
+        </p>
+        <p>
+          It is often used to learn how to use particular tools or equipment in a live-work practice,
+          simulated, or training environment.
+        </p>
+      </div>
+      <div class="mt-8 grid gap-5 sm:grid-cols-2">
+        {
+          benefits.map((b) => (
+            <div class="card p-6">
+              <span class="flex h-11 w-11 items-center justify-center rounded-lg bg-brand-50 text-brand-700">
+                <Icon name={b.icon} size={20} />
+              </span>
+              <h3 class="mt-4 font-display text-base font-bold text-brand-950">{b.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-500">{b.desc}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

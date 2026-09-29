@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PageHeader from "../components/PageHeader.astro";
+import Icon from "../components/Icon.astro";
+import { navigation, quickLinks, otherLinks } from "../data/site";
+---
+
+<BaseLayout title="Sitemap" description="Sitemap of the Govt. ITI Summerkot website.">
+  <PageHeader title="Sitemap" subtitle="All sections and pages of this website in one place." />
+  <section class="container-page py-12 lg:py-16">
+    <div class="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+      {
+        navigation.map((item) => (
+          <div class="card p-6">
+            {item.href ? (
+              <a href={item.href} class="font-display text-base font-bold text-brand-950 hover:text-brand-700">{item.label}</a>
+            ) : (
+              <p class="font-display text-base font-bold text-brand-950">{item.label}</p>
+            )}
+            {item.children && (
+              <ul class="mt-3 space-y-2 text-sm">
+                {item.children.map((c) => (
+                  <li>
+                    <a href={c.href} target={c.external ? "_blank" : undefined} rel={c.external ? "noopener" : undefined} class="inline-flex items-center gap-1.5 text-ink-600 hover:text-brand-700">
+                      {c.label}{c.external && <Icon name="external-link" size={13} />}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))
+      }
+      <div class="card p-6">
+        <p class="font-display text-base font-bold text-brand-950">Other Pages</p>
+        <ul class="mt-3 grid grid-cols-1 gap-2 text-sm sm:grid-cols-2">
+          {
+            [...quickLinks].map((c) => (
+              <li><a href={c.href} class="text-ink-600 hover:text-brand-700">{c.label}</a></li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="card p-6">
+        <p class="font-display text-base font-bold text-brand-950">Other Links</p>
+        <ul class="mt-3 space-y-2 text-sm">
+          {
+            otherLinks.map((c) => (
+              <li>
+                <a href={c.href} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-ink-600 hover:text-brand-700">
+                  {c.label} <Icon name="external-link" size={13} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

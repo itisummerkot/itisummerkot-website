@@ -1,0 +1,131 @@
+---
+import Icon from "./Icon.astro";
+import { site, quickLinks, otherLinks } from "../data/site";
+const year = new Date().getFullYear();
+const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&output=embed`;
+---
+
+<section class="bg-gradient-to-r from-brand-900 to-brand-800">
+  <div class="container-page flex flex-col items-center justify-between gap-5 py-8 text-center md:flex-row md:text-left">
+    <div>
+      <p class="font-display text-xl font-bold text-white sm:text-2xl">Trainee Grievance Redressal Mechanism</p>
+      <p class="mt-1 text-sm text-brand-100">Submit your complaint or feedback regarding the institute online.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href="/contact-us/" class="btn btn-accent">
+        <Icon name="clipboard-check" size={17} /> Submit Complaint
+      </a>
+      <a href="https://www.hptechboard.com/" target="_blank" rel="noopener" class="btn btn-ghost-light">
+        Admission / OLA Portal <Icon name="external-link" size={15} />
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-brand-950 text-brand-100">
+  <div class="container-page grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <img src="/images/179Logo-Header-hp.jpg" alt="Govt. ITI Summerkot" width="398" height="126" class="h-12 w-auto rounded bg-white p-1" />
+      <p class="mt-4 text-sm leading-relaxed text-brand-200">
+        {site.name}, a government industrial training institute under the {site.tagline}, imparting
+        world-class skill training to build a self-reliant and industry-ready workforce.
+      </p>
+      <div class="mt-5 flex gap-2">
+        <a href={site.social.facebook} aria-label="Facebook" class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-saffron-500 hover:text-brand-950"><Icon name="facebook" size={17} /></a>
+        <a href={site.social.twitter} aria-label="Twitter" class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-saffron-500 hover:text-brand-950"><Icon name="twitter" size={17} /></a>
+        <a href={site.social.youtube} aria-label="YouTube" class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-saffron-500 hover:text-brand-950"><Icon name="youtube" size={17} /></a>
+        <a href={site.social.linkedin} aria-label="LinkedIn" class="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 transition hover:bg-saffron-500 hover:text-brand-950"><Icon name="linkedin" size={17} /></a>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="font-display text-base font-bold text-white">Quick Links</h3>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        {quickLinks.map((l) => (
+          <li>
+            <a href={l.href} class="inline-flex items-center gap-2 text-brand-200 transition hover:text-saffron-300">
+              <span class="h-1 w-1 rounded-full bg-saffron-400"></span>{l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-display text-base font-bold text-white">Other Links</h3>
+      <ul class="mt-4 space-y-2.5 text-sm">
+        {otherLinks.map((l) => (
+          <li>
+            <a href={l.href} target="_blank" rel="noopener" class="inline-flex items-start gap-2 text-brand-200 transition hover:text-saffron-300">
+              <Icon name="external-link" size={14} class="mt-0.5 shrink-0" />{l.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="font-display text-base font-bold text-white">Reach Us</h3>
+      <ul class="mt-4 space-y-4 text-sm">
+        <li class="flex gap-3">
+          <Icon name="map-pin" size={18} class="mt-0.5 shrink-0 text-saffron-400" />
+          <span class="text-brand-200">{site.address}</span>
+        </li>
+        <li class="flex gap-3">
+          <Icon name="phone" size={18} class="mt-0.5 shrink-0 text-saffron-400" />
+          <span>
+            <a href={`tel:${site.phoneHref}`} class="text-brand-200 hover:text-saffron-300">{site.phone}</a><br />
+            <a href={`tel:${site.altPhoneHref}`} class="text-brand-200 hover:text-saffron-300">{site.altPhone}</a>
+          </span>
+        </li>
+        <li class="flex gap-3">
+          <Icon name="mail" size={18} class="mt-0.5 shrink-0 text-saffron-400" />
+          <a href={`mailto:${site.email}`} class="break-all text-brand-200 hover:text-saffron-300">{site.email}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-page overflow-hidden rounded-xl border border-white/10 my-8">
+      <iframe
+        title="Map of Govt. ITI Summerkot"
+        src={mapSrc}
+        width="100%"
+        height="260"
+        style="border:0; display:block;"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-page flex flex-col items-center justify-between gap-3 py-5 text-center text-xs text-brand-300 md:flex-row md:text-left">
+      <p>&copy; {year} {site.shortName}, Summerkot (H.P.). All rights reserved.</p>
+      <p class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
+        <a href="/screen-reader-access/" class="hover:text-saffron-300">Accessibility</a>
+        <a href="/sitemap/" class="hover:text-saffron-300">Sitemap</a>
+        <a href="/contact-us/" class="hover:text-saffron-300">Contact Us</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<a
+  href="#main"
+  id="to-top"
+  class="fixed bottom-5 right-5 z-40 hidden h-11 w-11 items-center justify-center rounded-full bg-brand-800 text-white shadow-lg transition hover:bg-brand-700"
+  aria-label="Back to top"
+>
+  <Icon name="chevron-down" size={20} class="rotate-180" />
+</a>
+<script is:inline>
+  (function () {
+    var btn = document.getElementById("to-top");
+    if (!btn) return;
+    window.addEventListener("scroll", function () {
+      btn.classList.toggle("hidden", window.scrollY < 500);
+    });
+  })();
+</script>

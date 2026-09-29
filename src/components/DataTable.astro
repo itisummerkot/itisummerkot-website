@@ -1,0 +1,37 @@
+---
+export interface Props {
+  headers: string[];
+  rows: (string | number)[][];
+  caption?: string;
+  variant?: "default" | "kv";
+  minWidth?: string;
+}
+
+const { headers, rows, caption, variant = "default", minWidth } = Astro.props;
+---
+
+<div class="data-table-wrap">
+  <table class:list={["data-table", variant === "kv" && "data-table--kv"]} style={minWidth ? `min-width:${minWidth}` : undefined}>
+    {caption && <caption>{caption}</caption>}
+    <thead>
+      <tr>
+        {headers.map((h) => <th scope="col">{h}</th>)}
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((row) => (
+          <tr>
+            {row.map((cell, i) =>
+              i === 0 && variant === "default" ? (
+                <th scope="row" class="!font-semibold">{cell}</th>
+              ) : (
+                <td>{cell}</td>
+              )
+            )}
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
